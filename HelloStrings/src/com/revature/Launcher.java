@@ -121,6 +121,27 @@ public class Launcher {
         String num = "50";
         int intNum = Integer.parseInt(num);
 
+        System.out.println("=============================(StringBuilder Practice Solution");
+
+        //Instantiate a new StringBuilder object. We can use our pangram String from earlier
+        StringBuilder sb = new StringBuilder(pangram);
+        //you can put any String value here to make a StringBUilder from that String.
+
+        System.out.println(sb); //our StringBuilder now has the value of the pangram. Let's manipulate it below
+
+        sb.reverse(); //reverse the StringBuilder
+        sb.append("BENJAMIN"); //append (add) my name to the end of the SB
+        sb.insert(12, "JAMIE"); //add "JAMIE" to index 12
+        sb.replace(0, 5, "Hello from the replace method"); //replace indices 0-5 with a new String
+
+        System.out.println(sb); //print out whatever this is
+
+        //Sometimes we need a String object (maybe a method you're using calls for a String)
+        //We can use toString()!
+        String newerString = sb.toString();
+
+        System.out.println(newerString); //same value... but now in String form! (not StringBuilder)
+
     }
 
 }
