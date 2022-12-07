@@ -83,12 +83,15 @@ public class Launcher {
         //"as long as i < the length of the myName Array, run the block of code and increment i"
         for(int i = 0; i < myName.length; i++){
 
-            if(myName[i] == ' '){
+            if(myName[i] == ' ' || myName[i] == 'A'){
                 continue; //continue causes the for loop to skip this iteration and go to the next one
             }
 
             //If the index we're on does not equal an empty space, print it out
-            System.out.println(myName[i]);
+            System.out.print(myName[i]);
+
+            //NOTE - we're using print not println
+            //println makes a new line, print doesn't
 
         }
     }
