@@ -45,6 +45,9 @@ public class Launcher {
         pit2.bite("another pitbull");
         pit2.bite("world renowned club banger creator Pitbull");
 
+        //let's be object-oriented and make pit2 bite pit1
+        pit2.bite(pit1.name);
+
     } //end of main method
 
 } //end of Launcher Class
