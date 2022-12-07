@@ -2,6 +2,7 @@ package com.revature;
 
 
 import com.revature.models.Dog;
+import com.revature.models.Pitbull;
 
 public class Launcher {
 
@@ -28,6 +29,21 @@ public class Launcher {
         //let's see the variables of these dogs
         System.out.println(dog1.name + " is " + dog1.age + " and " + dog1.weight + " pounds.");
         System.out.println(dog2.name + " is " + dog2.age + " and " + dog2.weight + " pounds.");
+
+        //using pitbull constructors
+        Pitbull pit1 = new Pitbull();
+        Pitbull pit2 = new Pitbull("John Cena", 3, 60, true);
+
+        //let's see the variables of these pitbulls
+        System.out.println(pit1.name + " is " + pit1.age + " and " + pit1.weight + " pounds.");
+        System.out.println(pit2.name + " is " + pit2.age + " and " + pit2.weight + " pounds.");
+
+        //using pitbull methods
+        System.out.println(pit2.bark());
+        //note that this bark() method if different from the Dog one because of OVERRIDING
+        pit2.bite("mailman");
+        pit2.bite("another pitbull");
+        pit2.bite("world renowned club banger creator Pitbull");
 
     } //end of main method
 

@@ -29,12 +29,27 @@ public class Pitbull extends Dog {
     If we had not overridden bark(), Pitbull would have the same exact bark() method
     But here, we declare the same method signature (first line), but with a different behavior
     THIS IS ANOTHER EXAMPLE OF POLYMORPHISM (a pillar of OOP)
+    This is also Inheritance since we're inheriting bark() before we change it
     */
     @Override
     public String bark(){
         return this.name + " says MR WORLDWIIIIDE";
     }
 
-    //constructors
+    //Constructors Below---------------------(Check Dog Class if you're like "what are constructors?")
+
+    //no-args constructor
+    public Pitbull() {
+        super(); //super calls the parent constructor! In this case, the no-args of Dog
+        this.clippedEars = false; //the default is true, but it'll get set to false in the no-args
+    }
+
+    //all-args constructor
+    public Pitbull(String name, int age, int weight, boolean clippedEars) {
+        super(name, age, weight); //this time, we're calling the all-args constructor of dog
+        this.clippedEars = clippedEars; //and whatever the user enter for clippedEars will be used
+    }
+
+    //calls to super(); are known as "constructor chaining" - calling a constructor within a constructor
 
 }
