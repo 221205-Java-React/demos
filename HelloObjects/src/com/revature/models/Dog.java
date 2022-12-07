@@ -33,6 +33,13 @@ public class Dog {
     Constructors will have the same name as the Class but no return type
     */
 
+    /*
+    These constructors are an example of METHOD OVERLOADING
+    They have the same names, but different amount, type, or order of parameters
+    This is one example of POLYMORPHISM (a pillar of OOP)
+        "Same thing, different form", these constructors share the same name, but do different things.
+    */
+
     //no-args constructor. No args constructors take no arguments. Typically used for default values
     //If you create a Dog with no parameters, this constructor will get called
     public Dog() {
