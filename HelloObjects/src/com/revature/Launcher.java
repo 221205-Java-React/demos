@@ -29,8 +29,6 @@ public class Launcher {
         System.out.println(dog1.name + " is " + dog1.age + " and " + dog1.weight + " pounds.");
         System.out.println(dog2.name + " is " + dog2.age + " and " + dog2.weight + " pounds.");
 
-        
+    } //end of main method
 
-    }
-
-}
+} //end of Launcher Class
