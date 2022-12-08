@@ -84,19 +84,36 @@ public class Launcher {
         //ScopeTesterClass.s2;
         //Java won't let you call a nonstatic on its own from within a static method
 
+        //instantiating two objects so that we can access the nonstatic variable
         ScopeTesterClass stc = new ScopeTesterClass();
         ScopeTesterClass stc2 = new ScopeTesterClass();
 
         System.out.println(stc.s2);
         System.out.println(stc2.s2);
 
-        stc2.s2 = "Delilah";
+        stc2.s2 = "Delilah"; //s2 has changed for stc2 ONLY. stc retains its value
 
         System.out.println(stc.s2);
         System.out.println(stc2.s2);
 
         System.out.println("=============================(Method/Block Scopes)");
 
+        scopesMethod();
+
+    } //end of main method
+
+    public static void scopesMethod(){
+
+        int methodScopedInt = 25; //this variable is METHOD SCOPED. only visible within the method it's in
+
+        if(true){
+            int blockScopedInt = 52; //this variable is BLOCK SCOPED. only visible within the if block
+            System.out.println(methodScopedInt);
+            System.out.println(blockScopedInt);
+        }
+
+        //System.out.println(blockScopedInt);
+        //blockScopedInt only exists within the block it was declared in. so we can't access it here.
     }
 
     public void testStaticAccessibility(){
