@@ -6,12 +6,12 @@ public class Launcher {
 
         System.out.println("========================(Throwing Some Unchecked (Runtime) Exceptions)");
 
-        //We'll never purposefully throw exceptions We're doing it here for science
+        //We'll never purposefully throw exceptions - We're doing it here for science
 
         System.out.println("Trying to divide by zero");
 
         //System.out.println(5/0);
-        //Java let us compile, but throws an ArithmeticException at RUNTIME hence the name
+        //Java let us compile, but throws an ArithmeticException at RUNTIME hence "Runtime Exception"
 
         System.out.println("Trying to access an Array index that doesn't exist");
 
@@ -42,9 +42,22 @@ public class Launcher {
         catch (Exception e){
             System.out.println("I could have caught any type of Exception if the other catches didn't.");
         }
+        finally{
+            System.out.println("Hello from the finally block - I will always run");
+        }
+        /*
+         Rule of thumb for try/catch blocks - you want the most specific Exceptions first
+         You want the most specific Exception possible to be caught to reduce debugging pain
+         The generic ones will go last to serve as a "catch all" situation
+          */
 
-        //Ben will show finally and a custom Checked exception
+        System.out.println("=========================(Using the Custom Exception)");
 
-    }
+    } //end of main method
+
+    
+
+
+    //When the demo is done, we'll explore the debugger and breakpoints
 
 }
