@@ -83,6 +83,19 @@ public class Launcher {
 
         System.out.println(breloom == breloom2); //false, == compares MEMORY ADDRESS
 
+        System.out.println("=================(Wrapper Classes)");
+
+        //for cases where we have to objects, like in collections, we have WRAPPER CLASSES
+        //these are simply Class versions of your primtive data types
+        //There's a wrapper class for every primitive
+
+        ArrayList<Integer> intList = new ArrayList();
+        ArrayList<Boolean> boolList = new ArrayList();
+        ArrayList<Character> charList = new ArrayList();
+
+        //lets see autoboxing
+        intList.add(4); //we didn't need to instantiate an Integer object! Java autoboxes the int for us.
+
     }
 
 }
