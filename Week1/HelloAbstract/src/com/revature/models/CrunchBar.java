@@ -7,6 +7,8 @@ Candy also implements the Food Interface, so CrunchBar is a Candy, and it is als
 In other words, CrunchBar has inherited EVERY member found in Candy and in Food
  */
 
+import com.revature.Launcher;
+
 //if we don't implement the inherited abstract methods, the compiler will complain
 //"HEY. You need to either be an abstract Class, or implement those abstract methods you inherited"
 public class CrunchBar extends Candy {
