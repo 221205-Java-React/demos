@@ -54,3 +54,7 @@ CREATE TABLE datatypes(
 );
 
 --there are A LOT more datatypes, feel free to look into them, but we'll mostly just use int, text, maybe boolean
+
+
+
+
