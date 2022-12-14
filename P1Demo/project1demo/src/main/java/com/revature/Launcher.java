@@ -1,5 +1,6 @@
 package com.revature;
 
+import com.revature.daos.RoleDAO;
 import com.revature.utils.ConnectionUtil;
 
 import java.sql.Connection;
@@ -22,6 +23,15 @@ public class Launcher {
         catch(SQLException e){
             System.out.println("connection failed :(");
         }
+
+
+        //TEMPORARY - we'll be accessing the DAO using HTTP Requests later
+
+        //Instantiate a RoleDAO so that we can its method
+        RoleDAO rDAO = new RoleDAO();
+
+        //getting role by id
+        System.out.println(rDAO.getRoleById(3));
 
     }
 

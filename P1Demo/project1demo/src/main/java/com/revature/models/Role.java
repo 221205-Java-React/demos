@@ -50,6 +50,12 @@ public class Role {
         this.role_salary = role_salary;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Role{" +
+                "role_id=" + role_id +
+                ", role_title='" + role_title + '\'' +
+                ", role_salary=" + role_salary +
+                '}';
+    }
 }

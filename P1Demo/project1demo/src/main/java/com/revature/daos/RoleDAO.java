@@ -38,8 +38,6 @@ public class RoleDAO implements RoleDAOInterface{
              */
             ResultSet rs = ps.executeQuery();
 
-            //after lunch----
-
             /*While loop to extract the resultset data
             WHILE there are results in the ResultNext (.next())...
             Make a new Role object.
@@ -56,13 +54,7 @@ public class RoleDAO implements RoleDAOInterface{
                 //This is just a CONSTRUCTOR that we opened up for the sake of cleaner code
 
                 return role; //return the Role data to the user!!
-
             }
-
-            //constructor in the while loop to get a Role object
-
-            //return the role object
-
         } catch(SQLException e){
             e.printStackTrace(); //if something goes wrong, this will display an error message
             //VERY important for debugging, so we know what went wrong and where
