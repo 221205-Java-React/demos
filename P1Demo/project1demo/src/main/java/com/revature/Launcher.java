@@ -2,10 +2,12 @@ package com.revature;
 
 import com.revature.daos.EmployeeDAO;
 import com.revature.daos.RoleDAO;
+import com.revature.models.Employee;
 import com.revature.utils.ConnectionUtil;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Launcher {
 
@@ -36,7 +38,11 @@ public class Launcher {
         System.out.println(rDAO.getRoleById(3));
 
         //getting all employees
-        System.out.println(eDAO.getEmployees());
+        ArrayList<Employee> employees = eDAO.getEmployees();
+
+        for(Employee e : employees){
+            System.out.println(e);
+        }
 
     }
 

@@ -4,10 +4,7 @@ import com.revature.models.Employee;
 import com.revature.models.Role;
 import com.revature.utils.ConnectionUtil;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class EmployeeDAO implements EmployeeDAOInterface{
@@ -79,6 +76,35 @@ public class EmployeeDAO implements EmployeeDAOInterface{
 
     @Override
     public Employee insertEmployee(Employee emp) {
+
+        //EVERY DAO METHOD needs to open a connection to the DB
+        try(Connection conn = ConnectionUtil.getConnection()){
+
+        //we need to create our SQL string as usual
+        String sql = "insert into employees (first_name, last_name, role_id_fk) values (?, ?, ?);";
+
+        //Instantiate a PreparedStatement to hold our SQL and fill its variables
+        PreparedStatement ps = conn.prepareStatement(sql);
+
+        //fill in each wildcard using the Employee object in the arguments
+        ps.setString(1, emp.getFirst_name());
+        ps.setString(2, emp.getLast_name());
+        ps.setInt(3, emp.getRole().getRole_id()); //we need to move through Role into its variables
+
+        //now that our SQL String is populated, we can execute the update
+        ps.executeUpdate();
+        //not executeQuery()?? NO!!!! that's for SELECTS. we use executeUpdate for inserts, updates, deletes
+
+        //no ResultSet because we aren't getting any data returned.
+
+        //BUT we do want to tell the user that the data was inserted
+        return emp;
+        //this is same employee inputted by the user. send it back to them to see if all goes well
+
+        } catch(SQLException e){
+            e.printStackTrace(); //tell us what went wrong
+        }
+
         return null;
     }
 
