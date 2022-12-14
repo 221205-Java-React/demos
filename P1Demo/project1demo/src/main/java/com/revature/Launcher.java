@@ -1,5 +1,6 @@
 package com.revature;
 
+import com.revature.daos.EmployeeDAO;
 import com.revature.daos.RoleDAO;
 import com.revature.utils.ConnectionUtil;
 
@@ -27,11 +28,15 @@ public class Launcher {
 
         //TEMPORARY - we'll be accessing the DAO using HTTP Requests later
 
-        //Instantiate a RoleDAO so that we can its method
+        //Instantiate a RoleDAO and EmployeeDAO so that we can their methods
         RoleDAO rDAO = new RoleDAO();
+        EmployeeDAO eDAO = new EmployeeDAO();
 
         //getting role by id
         System.out.println(rDAO.getRoleById(3));
+
+        //getting all employees
+        System.out.println(eDAO.getEmployees());
 
     }
 

@@ -6,8 +6,10 @@ public class Employee {
     private String first_name;
     private String last_name;
 
-    //Employees in Java will contain entire Role objects instead of just an int foreign key
-    //an int FK is less useful to us than an entire Role object
+    /*Employees in Java will contain entire Role objects instead of just an int foreign key
+    an int FK is less useful to us than an entire Role object
+    useful? If we have the entire Role object, we have access to all of that Role's DATA as well. more data :)
+     */
     private Role role;
 
     //boilerplate code----------------------
