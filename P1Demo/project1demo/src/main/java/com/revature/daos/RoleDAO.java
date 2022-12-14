@@ -12,7 +12,6 @@ import java.sql.SQLException;
 //This Class is responsible for all things ROLE data. This class will query the Role table
 public class RoleDAO implements RoleDAOInterface{
 
-
     @Override
     public Role getRoleById(int id) {
 
@@ -41,7 +40,24 @@ public class RoleDAO implements RoleDAOInterface{
 
             //after lunch----
 
-            //while loop to extract the resultset data
+            /*While loop to extract the resultset data
+            WHILE there are results in the ResultNext (.next())...
+            Make a new Role object.
+             */
+            while(rs.next()){
+
+                /*We need to use the data from the ResultSet to fill in a Role all-args constructor
+                    Basically, we need to make a Role object from the data */
+                Role role = new Role(
+                        rs.getInt("role_id"),
+                        rs.getString("role_title"),
+                        rs.getInt("role_salary")
+                );
+                //This is just a CONSTRUCTOR that we opened up for the sake of cleaner code
+
+                return role; //return the Role data to the user!!
+
+            }
 
             //constructor in the while loop to get a Role object
 
