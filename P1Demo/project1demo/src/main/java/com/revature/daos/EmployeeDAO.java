@@ -104,7 +104,6 @@ public class EmployeeDAO implements EmployeeDAOInterface{
         } catch(SQLException e){
             e.printStackTrace(); //tell us what went wrong
         }
-
         return null;
     }
 

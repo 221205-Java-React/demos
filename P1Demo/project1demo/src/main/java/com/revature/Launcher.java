@@ -4,6 +4,7 @@ import com.revature.daos.EmployeeDAO;
 import com.revature.daos.RoleDAO;
 import com.revature.models.Employee;
 import com.revature.utils.ConnectionUtil;
+import io.javalin.Javalin;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -43,6 +44,14 @@ public class Launcher {
         for(Employee e : employees){
             System.out.println(e);
         }
+
+        //insert a new employee
+        //NOTE: first_name has a UNIQUE constraint in the DB.
+        //This won't succeed if you have duplicate first names
+        Employee newEmp = new Employee("Reid", "Schroder", rDAO.getRoleById(1));
+
+        System.out.println(eDAO.insertEmployee(newEmp)); 
+
 
     }
 
