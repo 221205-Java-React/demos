@@ -65,6 +65,35 @@ public class RoleDAO implements RoleDAOInterface{
 
     @Override
     public boolean updateRoleSalary(String title, int salary) {
+
+        //As usual, we need to open a connection
+        /*Try with resources refresher
+            In this try block, we open a Connection object within parenthesis
+            By doing this, our Connection closes right after the try completes
+            this is good for code cleanup and preventing memory leaks
+          */
+        try(Connection conn = ConnectionUtil.getConnection()){
+
+            //create our SQL String (to be filled with values from the method arguments)
+            String sql = "update roles set role_salary = ? where role_title = ?;";
+
+            //Prepared statement so that we can fill appropriate values
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            //using ps.setXZY we can fill the wildcards (?) in our SQL statement
+            ps.setInt(1, salary);
+            ps.setString(2, title);
+
+            //execute the update!
+            ps.executeUpdate();
+
+            //if we get this far in the try block, we can assume nothing went wrong. return true.
+            return true;
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+
         return false;
     }
 }

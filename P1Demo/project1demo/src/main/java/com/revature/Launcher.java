@@ -50,8 +50,17 @@ public class Launcher {
         //This won't succeed if you have duplicate first names
         Employee newEmp = new Employee("Reid", "Schroder", rDAO.getRoleById(1));
 
-        System.out.println(eDAO.insertEmployee(newEmp)); 
+        //System.out.println(eDAO.insertEmployee(newEmp));
 
+        //update a salary
+        System.out.println(rDAO.updateRoleSalary("Cashier", 70000));
+
+        //reassigning the employee list to the new data, and printing it out
+        employees = eDAO.getEmployees();
+
+        for(Employee e : employees){
+            System.out.println(e);
+        }
 
     }
 
