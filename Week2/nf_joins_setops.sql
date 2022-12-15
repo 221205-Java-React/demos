@@ -92,7 +92,6 @@ VALUES ('Danny Phantom', 'Can do ghost things', 'Danny', 'Felton', 2),
 --cool, we are fully in 3NF (which is what we want typically.)
 
 
-
 --(JOINS)------------------------------------------
 
 --Remember, joins are necessary when we want to SELECT data from multiple tables. MULTI-TABLE QUERIES
@@ -103,7 +102,45 @@ SELECT * FROM superheroes INNER JOIN homes ON home_id_fk = home_id;
 --"select every record from superheroes and homes where there is a Pk/FK relationship
 --So in this case, we do not get Subway or Hancock returned (no homeless heroes, no heroless homes)
 
+--LEFT JOIN
+--returns all records from the left table, and matching records from the right table
+SELECT * FROM superheroes LEFT JOIN homes ON home_id_fk = home_id;
+--so in this case, we get Hancock's data, since superheroes is the "left" table. It's to the LEFT of the join keyword
+--and we don't get Subway, since it doesn't match any superheroes
+
+--RIGHT JOIN
+--returns all records from the right table, and matching records from the left table
+SELECT * FROM superheroes RIGHT JOIN homes ON home_id_fk = home_id;
+--so inthis case, we get Subway data, but no Hancock data
+
+--FULL OUTER JOIN
+--return everything.
+SELECT * FROM superheroes FULL JOIN homes ON home_id_fk = home_id;
+
+--Let's do a join with where clause because Kimmy decided to challenge me
+SELECT * FROM superheroes FULL JOIN homes ON home_id_fk = home_id WHERE home_id_fk = 1;
+
+--LUAN DID THIS DON'T CREDIT ME - "Can we have a join that only returns non matches?" no, but we can do this:
+SELECT * FROM superheroes FULL OUTER JOIN homes ON home_id_fk = home_id WHERE home_id_fk IS NULL OR home_id IS NULL;
+
+
+--(SET OPERATIONS)---------------------------
+
+--UNION
+--All distinct records from both queries - no duplicates
+SELECT home_id_fk, hero_name FROM superheroes UNION SELECT home_id, home_name FROM homes;
+--we can only do queries that return the same amount of columns
+
+--UNION ALL
+--All distinct records - including duplicates
+SELECT home_id_fk, hero_name FROM superheroes UNION ALL SELECT home_id, home_name FROM homes;
+
+--INTERSECT
+--Returns unique rows (no duplicates) found in BOTH queries
+SELECT home_id_fk FROM superheroes INTERSECT SELECT home_id FROM homes;
 
 
 
 
+--Would we realistically by doing set ops on two queries different things? (Like in UNION and UNION ALL)
+--probably not. I just want some data to show. More realistically you'd use them for columns with the same data
