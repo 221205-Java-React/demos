@@ -52,10 +52,56 @@ VALUES ('Elastigirl', 'Elasticity', 'Helen', 'Parr', 'The Incredibles House', '1
 ('Spiderman', 'Webby Guy', 'Peter', 'Parker', 'His Aunt''s house', '789 street st.'),
 ('Spiderman', 'Webby Guy', 'Myles', 'Morales', 'His Aunt''s house', '789 street st.');
 
+SELECT * FROM superheroes;
+
+DROP TABLE superheroes;
 
 --3NF--------------------------------------
 
+--To be in 3NF we must remove transitive dependencies (split tables to have single responsibilities)
+--By "single responsibility" I mean each table should track just one thing (heroes tables, homes table)
 
+CREATE TABLE homes (
+	home_id serial PRIMARY KEY,
+	home_name TEXT,
+	street_address TEXT 
+);
+
+CREATE TABLE superheroes(
+	superhero_id serial PRIMARY KEY, 
+	hero_name TEXT,
+	hero_power TEXT,
+	first_name TEXT,
+	last_name TEXT,
+	home_id_fk int REFERENCES homes(home_id) --typically foreign key creation syntax
+);
+
+INSERT INTO homes (home_name, street_address)
+VALUES ('Aunt May''s', '123 main st'), ('The Felton House', '456 main st');
+
+INSERT INTO homes (home_name, street_address)
+VALUES ('Subway', '148 Sub Way'); --nobody will live here, I'm adding this for later
+
+
+INSERT INTO superheroes (hero_name, hero_power, first_name, last_name, home_id_fk)
+VALUES ('Danny Phantom', 'Can do ghost things', 'Danny', 'Felton', 2),
+('Spiderman', 'Webby Guy', 'Peter', 'Parker', 1),
+('Spiderman', 'Webby Guy', 'Myles', 'Morales', 1),
+('Hancock', 'Power Slap', 'Will', 'Smith', null); --Hancock will have no home related to him
+
+--cool, we are fully in 3NF (which is what we want typically.)
+
+
+
+--(JOINS)------------------------------------------
+
+--Remember, joins are necessary when we want to SELECT data from multiple tables. MULTI-TABLE QUERIES
+
+--INNER JOIN
+--returns all records with matching data (from the PK/FK) in both tables
+SELECT * FROM superheroes INNER JOIN homes ON home_id_fk = home_id;
+--"select every record from superheroes and homes where there is a Pk/FK relationship
+--So in this case, we do not get Subway or Hancock returned (no homeless heroes, no heroless homes)
 
 
 
