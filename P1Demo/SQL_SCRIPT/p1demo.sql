@@ -23,3 +23,9 @@ VALUES ('Eugene', 'Krabs', 1), ('Squidward', 'Tentacles', 2),
 ('Spongebob', 'Squarepants', 3), ('Sheldon', 'Plankton', 4);
 
 SELECT * FROM employees;
+
+--(JOINS)------------------------------------------
+
+--
+
+
