@@ -139,7 +139,9 @@ SELECT home_id_fk, hero_name FROM superheroes UNION ALL SELECT home_id, home_nam
 --Returns unique rows (no duplicates) found in BOTH queries
 SELECT home_id_fk FROM superheroes INTERSECT SELECT home_id FROM homes;
 
-
+--EXCEPT
+--Return unique rows (no duplicates) in the first query that DON'T appear in the second query
+SELECT home_id_fk FROM superheroes EXCEPT SELECT home_id FROM homes;
 
 
 --Would we realistically by doing set ops on two queries different things? (Like in UNION and UNION ALL)
