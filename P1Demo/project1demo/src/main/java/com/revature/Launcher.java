@@ -29,8 +29,23 @@ public class Launcher {
         }
 
 
+        //Typical Javalin object creation syntax
+        Javalin app = Javalin.create(
+
+            //This config lambda lets us specify certain configurations for our Javalin object
+            // ->? "For this config object, do the following things"
+            config -> {
+                config.enableCorsForAllOrigins(); //This lets us process HTTP Requests from anywhere
+            }
+
+        ).start(3000); //we need .start() to start our Java server on port 3000
+        //You can do any port, I chose 3000 because probably nothing is using it.
+        //a port is like a parking space for an application, where messages etc. can find it
+
+
         //TEMPORARY - we'll be accessing the DAO using HTTP Requests later
 
+        /*
         //Instantiate a RoleDAO and EmployeeDAO so that we can their methods
         RoleDAO rDAO = new RoleDAO();
         EmployeeDAO eDAO = new EmployeeDAO();
@@ -62,6 +77,8 @@ public class Launcher {
             System.out.println(e);
         }
 
-    }
+        */
+
+    } //end of main method
 
 }
