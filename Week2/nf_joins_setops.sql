@@ -29,7 +29,7 @@ the primary key here is the combo of hero_name and first_name. This is a DIFFICU
 
 SELECT * FROM superheroes;
 
-DROP TABLE superheroes;
+DROP TABLE superheroes; --Dropping the 1NF table so that we can make a better one
 
 
 --2NF--------------------------------------
@@ -46,7 +46,11 @@ CREATE TABLE superheroes(
 	street_address TEXT
 );
 
-
+INSERT INTO superheroes (hero_name, hero_power, first_name, last_name, home_base, street_address)
+VALUES ('Elastigirl', 'Elasticity', 'Helen', 'Parr', 'The Incredibles House', '123 street st.'),
+('Danny Phantom', 'Can do ghost things', 'Danny', 'Felton', 'The Fentons House', '456 street st.'),
+('Spiderman', 'Webby Guy', 'Peter', 'Parker', 'His Aunt''s house', '789 street st.'),
+('Spiderman', 'Webby Guy', 'Myles', 'Morales', 'His Aunt''s house', '789 street st.');
 
 
 --3NF--------------------------------------
