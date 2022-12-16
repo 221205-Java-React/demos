@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import com.google.gson.Gson;
 import com.revature.daos.EmployeeDAO;
 import com.revature.models.Employee;
 import io.javalin.http.Handler;
@@ -25,8 +26,17 @@ public class EmployeeController {
         //We need an ArrayList of Employees, courtesy of our EmployeeDAO
         ArrayList<Employee> employees = eDAO.getEmployees();
 
-        //temporary, just to make sure postman works. ctx.result() sends a Reponse back
-        ctx.result("Handler Works!");
+        //PROBLEM: we can't send plain Java in an HTTP Response. We need JSON! This is where GSON comes in
+
+        //instantiate a GSON object so that we can make Java <-> JSON conversions
+        Gson gson = new Gson();
+
+        //use the GSON .toJson() method to turn our Java into a JSON String (JSON is always in String format
+        String JSONEmployees = gson.toJson(employees);
+
+        //we use ctx.result() to send back an HTTP Response
+        //in this case, the user requests all employee data, so that's what we're sending.
+        ctx.result(JSONEmployees);
 
     };
 
