@@ -6,10 +6,16 @@ import com.revature.models.Employee;
 import com.revature.models.LoginDTO;
 import io.javalin.http.Handler;
 
+import javax.servlet.http.HttpSession;
+
 public class AuthController {
 
     //AuthDAO so we can access its methods
     AuthDAO aDAO = new AuthDAO();
+
+    //empty HttpSession object that will be filled upon successful login
+    public static HttpSession ses;
+    //to prevent functionalities from running until login, have them check whether this Session is null;
 
     //login will be a POST request, since the user is expected to send some data in the HTTP Request
     public Handler loginHandler = (ctx) -> {
@@ -27,6 +33,13 @@ public class AuthController {
         Employee loggedInEmployee = aDAO.login(lDTO.getFirst_name(), lDTO.getLast_name());
 
         if(loggedInEmployee != null){
+
+            //This is how we create sessions in Javalin 4
+            ses = ctx.req.getSession();
+
+            /*
+                FOR JAVALIN 5 - to create sessions it'll be ctx.req().getSession();
+             */
 
             //turn the employee back into JSON, so we can send it in the HTTP Response
             String userJSON = gson.toJson(loggedInEmployee);
