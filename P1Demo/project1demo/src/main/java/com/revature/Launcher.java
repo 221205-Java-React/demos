@@ -1,5 +1,6 @@
 package com.revature;
 
+import com.revature.controllers.AuthController;
 import com.revature.controllers.EmployeeController;
 import com.revature.controllers.RoleController;
 import com.revature.daos.EmployeeDAO;
@@ -54,6 +55,7 @@ public class Launcher {
         //instantiating Controllers so that we can access their Handlers
         EmployeeController ec = new EmployeeController();
         RoleController rc = new RoleController();
+        AuthController ac = new AuthController();
 
         /* app.get() is the Javalin method that takes in GET requests.
         In this case, it's calling to the getAllEmployeesHandler in the EmployeeController
@@ -68,7 +70,8 @@ public class Launcher {
         //{title}?? This is a PATH PARAMETER. The value that the user inputs after /roles/ will be stored.
         app.patch("/roles/{title}", rc.updateSalaryHandler);
 
-
+        //this is the endpoint handler for login
+        app.post("/login", ac.loginHandler);
 
         //TEMPORARY - we'll be accessing the DAO using HTTP Requests later
 
