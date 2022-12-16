@@ -89,7 +89,7 @@ public class EmployeeDAO implements EmployeeDAOInterface{
         //fill in each wildcard using the Employee object in the arguments
         ps.setString(1, emp.getFirst_name());
         ps.setString(2, emp.getLast_name());
-        ps.setInt(3, emp.getRole().getRole_id()); //we need to move through Role into its variables
+        ps.setInt(3, emp.getRole_id_fk());
 
         //now that our SQL String is populated, we can execute the update
         ps.executeUpdate();

@@ -1,6 +1,7 @@
 package com.revature;
 
 import com.revature.controllers.EmployeeController;
+import com.revature.controllers.RoleController;
 import com.revature.daos.EmployeeDAO;
 import com.revature.daos.RoleDAO;
 import com.revature.models.Employee;
@@ -52,6 +53,7 @@ public class Launcher {
 
         //instantiating Controllers so that we can access their Handlers
         EmployeeController ec = new EmployeeController();
+        RoleController rc = new RoleController();
 
         /* app.get() is the Javalin method that takes in GET requests.
         In this case, it's calling to the getAllEmployeesHandler in the EmployeeController
@@ -62,6 +64,9 @@ public class Launcher {
         //why are we allowed to have two handlers that both take requests ending in /employees
         app.post("/employees", ec.insertEmployee);
 
+        //app.patch() is the Javalin method that takes in PATCH requests
+        //:title?? This is a PATH PARAMETER. The value that the user inputs after /roles/ will be stored.
+        app.patch("/roles/:title", rc.updateSalaryHandler);
 
 
         //TEMPORARY - we'll be accessing the DAO using HTTP Requests later
