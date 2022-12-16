@@ -24,8 +24,6 @@ VALUES ('Eugene', 'Krabs', 1), ('Squidward', 'Tentacles', 2),
 
 SELECT * FROM employees;
 
---(JOINS)------------------------------------------
 
---
 
 

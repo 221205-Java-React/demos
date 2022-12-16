@@ -1,5 +1,6 @@
 package com.revature;
 
+import com.revature.controllers.EmployeeController;
 import com.revature.daos.EmployeeDAO;
 import com.revature.daos.RoleDAO;
 import com.revature.models.Employee;
@@ -34,6 +35,7 @@ public class Launcher {
 
             //This config lambda lets us specify certain configurations for our Javalin object
             // ->? "For this config object, do the following things"
+                //ANYONE USING JAVALIN 5 SHOULD LEAVE THIS OUT
             config -> {
                 config.enableCorsForAllOrigins(); //This lets us process HTTP Requests from anywhere
             }
@@ -42,6 +44,16 @@ public class Launcher {
         //You can do any port, I chose 3000 because probably nothing is using it.
         //a port is like a parking space for an application, where messages etc. can find it
 
+        //ENDPOINT HANDLERS BELOW--------------------
+
+        /*This is where we will specify different paths to different functionalities
+         When requests come in, they must match one these paths in order to execute some specific behavior
+         Handlers - they "handle" http requests */
+
+        //instantiating Controllers so that we can access their Handlers
+        EmployeeController ec = new EmployeeController();
+
+        app.get("/employees", ec.getEmployeesHandler);
 
         //TEMPORARY - we'll be accessing the DAO using HTTP Requests later
 

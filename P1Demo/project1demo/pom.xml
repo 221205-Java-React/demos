@@ -20,24 +20,28 @@
         <!--Redundant, yes, but we need each dependency to be wrapped in <dependency> tags-->
 
         <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <!--Postgres dependency so that we can connect to the database with JDBC-->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.5.1</version>
         </dependency>
 
+        <!--Javalin helper dependency-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.31</version>
         </dependency>
 
+        <!--Javalin dependency so that we can take in HTTP Requests and return HTTP Responses-->
         <dependency>
             <groupId>io.javalin</groupId>
             <artifactId>javalin</artifactId>
             <version>4.4.0</version>
         </dependency>
 
+        <!--GSON dependency to that we can make Java <-> JSON translations -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
