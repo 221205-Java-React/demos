@@ -24,23 +24,32 @@ public class EmployeeController {
          process HTTP Requests and send HTTP Responses.
          Here, we are giving it a variable called "ctx" so that we can access its methods */
 
-        //We need an ArrayList of Employees, courtesy of our EmployeeDAO
-        ArrayList<Employee> employees = eDAO.getEmployees();
+        //if the Session is not null, we know the user is logged in.
+        //Thus, we can allow them to view employees
+        if(AuthController.ses != null) {
 
-        //PROBLEM: we can't send plain Java in an HTTP Response. We need JSON! This is where GSON comes in
+            //We need an ArrayList of Employees, courtesy of our EmployeeDAO
+            ArrayList<Employee> employees = eDAO.getEmployees();
 
-        //instantiate a GSON object so that we can make Java <-> JSON conversions
-        Gson gson = new Gson();
+            //PROBLEM: we can't send plain Java in an HTTP Response. We need JSON! This is where GSON comes in
 
-        //use the GSON .toJson() method to turn our Java into a JSON String (JSON is always in String format
-        String JSONEmployees = gson.toJson(employees);
+            //instantiate a GSON object so that we can make Java <-> JSON conversions
+            Gson gson = new Gson();
 
-        //we use ctx.result() to send back an HTTP Response
-        //in this case, the user requests all employee data, so that's what we're sending.
-        ctx.result(JSONEmployees);
+            //use the GSON .toJson() method to turn our Java into a JSON String (JSON is always in String format
+            String JSONEmployees = gson.toJson(employees);
 
-        //we can set status code with ctx.status()
-        ctx.status(202); //202 stands for accepted. 200 is default which is also fine
+            //we use ctx.result() to send back an HTTP Response
+            //in this case, the user requests all employee data, so that's what we're sending.
+            ctx.result(JSONEmployees);
+
+            //we can set status code with ctx.status()
+            ctx.status(202); //202 stands for accepted. 200 is default which is also fine
+
+        } else { //if the user is NOT logged in:
+            ctx.result("YOU MUST LOG IN TO DO THIS");
+            ctx.status(401); //401 "unauthorized"
+        }
 
     }; //semicolon after curly brace? That's lambdas for you.
     //lambda functions with code inside curly braces need to be terminated with semicolons.
