@@ -51,8 +51,6 @@ public class AuthDAO {
 
             }
 
-
-
         } catch (SQLException e){
             e.printStackTrace();
         }
