@@ -53,7 +53,14 @@ public class Launcher {
         //instantiating Controllers so that we can access their Handlers
         EmployeeController ec = new EmployeeController();
 
+        /* app.get() is the javalin method that takes in GET requests.
+        In this case, it's calling to the getAllEmployeesHandler in the EmployeeController
+        SO, when we send a request to localhost:3000/employees, the getEmployeesHandler will execute */
         app.get("/employees", ec.getEmployeesHandler);
+
+        
+
+
 
         //TEMPORARY - we'll be accessing the DAO using HTTP Requests later
 

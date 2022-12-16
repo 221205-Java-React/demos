@@ -16,6 +16,9 @@ public class EmployeeController {
     //then send that Employee data back in an HTTP Response
     public Handler getEmployeesHandler = (ctx) -> {
 
+        //temporary, just to make sure postman works. ctx.result() sends a Reponse back 
+        ctx.result("Handler Works!");
+
     };
 
 }
