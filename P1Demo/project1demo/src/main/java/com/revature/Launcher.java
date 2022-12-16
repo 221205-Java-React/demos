@@ -65,8 +65,9 @@ public class Launcher {
         app.post("/employees", ec.insertEmployee);
 
         //app.patch() is the Javalin method that takes in PATCH requests
-        //:title?? This is a PATH PARAMETER. The value that the user inputs after /roles/ will be stored.
-        app.patch("/roles/:title", rc.updateSalaryHandler);
+        //{title}?? This is a PATH PARAMETER. The value that the user inputs after /roles/ will be stored.
+        app.patch("/roles/{title}", rc.updateSalaryHandler);
+
 
 
         //TEMPORARY - we'll be accessing the DAO using HTTP Requests later
