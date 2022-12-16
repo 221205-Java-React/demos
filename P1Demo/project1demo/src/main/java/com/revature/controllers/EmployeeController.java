@@ -21,7 +21,8 @@ public class EmployeeController {
     public Handler getEmployeesHandler = (ctx) -> {
 
         /*What's ctx?? The context object! This object contains methods that we can use to
-         process HTTP Requests and send HTTP Responses*/
+         process HTTP Requests and send HTTP Responses.
+         Here, we are giving it a variable called "ctx" so that we can access its methods */
 
         //We need an ArrayList of Employees, courtesy of our EmployeeDAO
         ArrayList<Employee> employees = eDAO.getEmployees();
@@ -37,6 +38,39 @@ public class EmployeeController {
         //we use ctx.result() to send back an HTTP Response
         //in this case, the user requests all employee data, so that's what we're sending.
         ctx.result(JSONEmployees);
+
+        //we can set status code with ctx.status()
+        ctx.status(202); //202 stands for accepted. 200 is default which is also fine
+
+    }; //semicolon after curly brace? That's lambdas for you.
+    //lambda functions with code inside curly braces need to be terminated with semicolons.
+
+
+    //This Handler will get the HTTP POST Request for inserting a new employee to the DB.
+    public Handler insertEmployee = (ctx) -> {
+
+        //With POST requests, we have JSON data coming in, which we can access with ctx.body();
+        //body??? it refers to the BODY (aka the DATA) sent with the HTTP Request (in this case, employee)
+        String body = ctx.body(); //we now have a Java String holding a JSON String
+
+        //Instantiate a new GSON object to JSON <-> Java conversions
+        Gson gson = new Gson();
+
+        //turn the incoming JSON data (stored in the body String) into an Employee object
+        Employee newEmp = gson.fromJson(body, Employee.class);
+
+        /*we're calling the insert employees method from the EmployeeDAO
+           if it's successful, we'll send the new employee back in the response with a 201 status code
+           if it fails, we'll send an error message and a 406 status code
+         */
+
+        if(eDAO.insertEmployee(newEmp) != null){ //if insert was succesful (which we set to return an Employee)
+            ctx.status(201); //201 "created"
+            ctx.result(body); //send back the employee
+        } else {
+            ctx.status(406); //406 "not acceptable"
+            ctx.result("Insert employee failed!");
+        }
 
     };
 

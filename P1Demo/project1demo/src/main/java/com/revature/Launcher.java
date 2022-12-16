@@ -53,12 +53,14 @@ public class Launcher {
         //instantiating Controllers so that we can access their Handlers
         EmployeeController ec = new EmployeeController();
 
-        /* app.get() is the javalin method that takes in GET requests.
+        /* app.get() is the Javalin method that takes in GET requests.
         In this case, it's calling to the getAllEmployeesHandler in the EmployeeController
         SO, when we send a request to localhost:3000/employees, the getEmployeesHandler will execute */
         app.get("/employees", ec.getEmployeesHandler);
 
-
+        //app.post() is the Javalin method that takes in POST requests
+        //why are we allowed to have two handlers that both take requests ending in /employees
+        app.post("/employees", ec.insertEmployee);
 
 
 
