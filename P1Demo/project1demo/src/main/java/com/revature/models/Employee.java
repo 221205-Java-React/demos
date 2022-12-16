@@ -12,6 +12,10 @@ public class Employee {
      */
     private Role role;
 
+    private int role_id_fk; //we're creating this variable to make inserts in Postman easier.
+    //paired with a constructor, we can make it so that we only need to supply the FK in POST requests
+        //as opposed to an entire role object
+
     //boilerplate code----------------------
 
     //no-args constructor
@@ -31,6 +35,22 @@ public class Employee {
         this.first_name = first_name;
         this.last_name = last_name;
         this.role = role;
+    }
+
+    //constructor with no id, and int FK. To help with POST requests that insert an Employee
+    //This gives us the flexibility to create a new employee without specifying and entire Role object
+    public Employee(String first_name, String last_name, int role_id_fk) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.role_id_fk = role_id_fk;
+    }
+
+    public int getRole_id_fk() {
+        return role_id_fk;
+    }
+
+    public void setRole_id_fk(int role_id_fk) {
+        this.role_id_fk = role_id_fk;
     }
 
     public int getEmployee_id() {
