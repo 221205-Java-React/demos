@@ -26,4 +26,24 @@ SELECT * FROM employees;
 
 
 
+--Showing off some aggregate functions, group by, and having.
+
+SELECT avg(role_salary) FROM roles;
+
+SELECT sum(role_salary) FROM roles;
+
+SELECT min(role_salary) FROM roles;
+
+SELECT count(role_salary) FROM roles where role_salary > 50000;
+
+--GROUP BY will merge rows together based on matching column values
+SELECT count(employee_id) FROM employees GROUP BY last_name;
+
+--HAVING is like a where clause, but it can only be used after a GROUP BY. trying to use where with group by won't work.
+SELECT count(employee_id) FROM employees GROUP BY last_name having last_name = 'Tentacles';
+
+
+
+
+
 
