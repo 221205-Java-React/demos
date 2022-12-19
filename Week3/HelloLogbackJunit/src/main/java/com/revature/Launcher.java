@@ -10,6 +10,12 @@ public class Launcher {
 
         calc.sum(54, 70);
 
+        calc.difference(45, 2);
+
+        calc.quotient(10, 5);
+
+        calc.quotient(10, 0);
+
     }
 
 }

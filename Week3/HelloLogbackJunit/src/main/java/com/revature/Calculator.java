@@ -20,7 +20,7 @@ public class Calculator {
 
     public int quotient(int x, int y){
         try{
-            logger.info("User divided numbers " + x + " and " + y);
+            logger.info("User attempted to divide numbers " + x + " and " + y);
             return x / y;
         }
         catch(ArithmeticException e){
