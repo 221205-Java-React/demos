@@ -46,8 +46,10 @@ SELECT count(*) FROM employees GROUP BY last_name;
 --HAVING is like a where clause, but it can only be used after a GROUP BY. trying to use where with group by won't work.
 SELECT count(*) FROM employees GROUP BY last_name HAVING last_name = 'Tentacles';
 
+SELECT count(*) FROM employees GROUP BY last_name HAVING last_name = 'Tentacles' OR last_name = 'Squarepants';
 
 
-
-
+--We use WHERE for standard, un-aggregated data.
+--We use HAVING after a GROUP BY operation.
+--We cannot use one where the other belongs. WHERE doesn't work after a GROUP BY for instance.
 

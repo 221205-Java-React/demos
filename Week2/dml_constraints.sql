@@ -120,3 +120,11 @@ CREATE TABLE employees(
 	last_name TEXT,
 	role_id_fk int REFERENCES roles(role_id) ON DELETE CASCADE --This also works for ON UPDATE CASCADE
 );
+
+
+
+
+
+
+
+
