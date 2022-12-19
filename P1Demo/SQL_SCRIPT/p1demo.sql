@@ -34,13 +34,17 @@ SELECT sum(role_salary) FROM roles;
 
 SELECT min(role_salary) FROM roles;
 
+SELECT max(role_salary) FROM roles;
+
 SELECT count(role_salary) FROM roles where role_salary > 50000;
 
+SELECT count(*) FROM employees;
+
 --GROUP BY will merge rows together based on matching column values
-SELECT count(employee_id) FROM employees GROUP BY last_name;
+SELECT count(*) FROM employees GROUP BY last_name;
 
 --HAVING is like a where clause, but it can only be used after a GROUP BY. trying to use where with group by won't work.
-SELECT count(employee_id) FROM employees GROUP BY last_name having last_name = 'Tentacles';
+SELECT count(*) FROM employees GROUP BY last_name HAVING last_name = 'Tentacles';
 
 
 
