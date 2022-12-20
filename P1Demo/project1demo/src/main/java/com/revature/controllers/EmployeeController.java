@@ -51,6 +51,10 @@ public class EmployeeController {
             //we can set status code with ctx.status()
             ctx.status(202); //202 stands for accepted. 200 is default which is also fine
 
+            //we don't actually want to kill the User's session after they get all employees
+            //but here's how we would close a Session
+            //AuthController.ses.invalidate();
+
         } else { //if the user is NOT logged in:
             ctx.result("YOU MUST LOG IN TO DO THIS");
             ctx.status(401); //401 "unauthorized"
