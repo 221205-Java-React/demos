@@ -28,6 +28,11 @@ public class EmployeeController {
         //Thus, we can allow them to view employees
         if(AuthController.ses != null) {
 
+            //this is just showing how to retrieve saved session attributes
+            //realistically, you'd be putting these values into your DAOs
+            System.out.println(AuthController.ses.getAttribute("role_id"));
+            System.out.println(AuthController.ses.getAttribute("employee_id"));
+
             //We need an ArrayList of Employees, courtesy of our EmployeeDAO
             ArrayList<Employee> employees = eDAO.getEmployees();
 

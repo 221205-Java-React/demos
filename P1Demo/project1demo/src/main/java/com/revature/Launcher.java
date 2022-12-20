@@ -31,6 +31,7 @@ public class Launcher {
             System.out.println("connection failed :(");
         }
 
+        System.out.println(System.getenv("url"));
 
         //Typical Javalin object creation syntax
         Javalin app = Javalin.create(

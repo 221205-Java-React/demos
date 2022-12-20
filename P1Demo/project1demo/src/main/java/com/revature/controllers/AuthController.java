@@ -37,6 +37,15 @@ public class AuthController {
             //This is how we create sessions in Javalin 4
             ses = ctx.req.getSession();
 
+            //we can use setAttribute() to set certain values to certain keys
+            //THIS IS HOW WE CAN SAVE DATA IN A SESSION
+            ses.setAttribute("role_id", loggedInEmployee.getRole().getRole_id());
+            ses.setAttribute("employee_id", loggedInEmployee.getEmployee_id());
+
+            //role id would be used to determine manager/employee, giving access to only certain methods
+            //employee id would be used to get all reimbursements of the logged in employee
+                //as well anything else that needs user id, like the employee FK of reimbursements
+
             /*
                 FOR JAVALIN 5 - to create sessions it'll be ctx.req().getSession();
              */
