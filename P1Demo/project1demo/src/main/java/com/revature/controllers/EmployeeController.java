@@ -33,6 +33,9 @@ public class EmployeeController {
             System.out.println(AuthController.ses.getAttribute("role_id"));
             System.out.println(AuthController.ses.getAttribute("employee_id"));
 
+            //this is how you can get an int value for the session attributes
+            int i = (Integer)AuthController.ses.getAttribute("role_id");
+
             //We need an ArrayList of Employees, courtesy of our EmployeeDAO
             ArrayList<Employee> employees = eDAO.getEmployees();
 
@@ -82,7 +85,7 @@ public class EmployeeController {
            if it fails, we'll send an error message and a 406 status code
          */
 
-        if(eDAO.insertEmployee(newEmp) != null){ //if insert was succesful (which we set to return an Employee)
+        if(eDAO.insertEmployee(newEmp) != null){ //if insert was successful (which we set to return an Employee)
             ctx.status(201); //201 "created"
             ctx.result(body); //send back the employee
         } else {
