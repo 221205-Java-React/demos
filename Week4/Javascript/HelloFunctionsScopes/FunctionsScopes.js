@@ -25,7 +25,96 @@ let test = (var1, var2) => {
 test(1, true);
 test(" ", false);
 
-//callback functions
 
-//closures
+//Callback functions - functions that take in another function as a parameter
+function f1(x){
+    console.log("Inside function 1");
+    console.log("x is: " + x)
+}
 
+function f2(y, callBack){
+    console.log("Inside function 2");
+    callBack(y); //so "callBack" is intended to be a function
+    //which takes in "y" as its argument
+}
+
+//using the callback function
+f2(100, f1);
+
+
+//Closures - an older way of achieving encapsulation in JS 
+let helloName = function (name) {
+    return function(){
+        console.log("Hello, " + name);
+    }
+}
+
+//the nested function can access the "name" argument, but can't change it
+
+//assign the function call to a variable, and give it an argument for name
+let nameBen = helloName("Ben");
+
+nameBen(); 
+
+//BUT once we assign the helloName variable, it can't ever change
+helloName = helloName("Jamie");
+
+helloName();
+
+//attempting to change the name argument
+let newName = helloName("Eggward");
+
+helloName(); //hello Jamie still prints, despite us sending in a new value for name
+
+console.log("(Global Scopes)=========================================")
+
+//anything that is globally scoped is visible throughout the entire script.
+
+console.log(a); //is this legal? yes, it's undefined though
+
+//another example of hoisting!! vars and functions all get hoisted up to the top of their scope
+
+var a = 5; 
+
+console.log(a); //so now, after it's been given a value, it's no longer undefined
+
+//let's try this with a let
+
+//console.log(b); //is this legal? NO!! let and const are NOT hoisted. only var and functions.
+
+let b = 10;
+
+console.log(b); //this, however, is legal 
+
+console.log("(Local Scopes)==========================================")
+
+//block scope---------
+
+if(true){
+    var c = "I'm a var in a block. Block Scoped!"
+    console.log(c);
+    let d = "I'm a let in a block. Block Scoped!"
+    console.log(d)
+}
+
+console.log(c); //This variable is visible outside of its block, since it's a VAR
+//console.log(d); //This variable is NOT visible outside of its block, since it's a LET
+
+
+//functional scope----------
+
+function scopeTest(){
+    console.log(e); //undefined, but not an error since its a var
+    var e = "I'm a var in a function!"
+    console.log(e); //now we can see the value
+}
+
+//console.log(e); we get an error here, despite e being a var. vars are scopelocked within functions
+
+scopeTest();
+
+/*
+    The main difference between block/functional scope is...
+    -vars are NOT visible outside the function they were declared in
+    -BUT they are visible outside of any non-function blocks
+*/
