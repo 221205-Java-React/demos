@@ -23,6 +23,10 @@ async function fetchData(){
     await fetch(url + userInput)
     .then((response) => response.json()) //extract the body of the response (the HTTP Response from PokeAPI)
     .then((data) => renderHTML(data)) //this "data" variable gets the JS version of the incoming JSON. We send the data to the renderHTML function
+    .then(() => document.getElementById("header").innerHTML = "Pokemon Found!")
+    .catch((error) => document.getElementById("header").innerHTML = "It got away!! Try Again...")
+    .finally(() => 
+        setTimeout(() => document.getElementById("header").innerHTML = "Find A Pokemon:", 2000))
 
     /* Ben will add another .then(), .catch(), .finally(), and elaborate */
 
