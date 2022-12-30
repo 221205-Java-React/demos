@@ -28,7 +28,11 @@ async function fetchData(){
     .finally(() => 
         setTimeout(() => document.getElementById("header").innerHTML = "Find A Pokemon:", 2000))
 
-    /* Ben will add another .then(), .catch(), .finally(), and elaborate */
+    /* .then() lets us perform actions with the incoming HTTP Request
+       .catch() lets us catch error and handle them
+       .finally() lets us execute some functionality after the other methods complete 
+       I threw in a setTimeout(), which lets us execute some code AFTER a given amount of milliseconds
+       */
 
 }
 
@@ -50,3 +54,17 @@ function renderHTML(data){
     pokepic.setAttribute("src", data.sprites.front_default)
 
 }
+
+/*Hypothecial function that would send a POST request (a bit more involved than GET, since we're sending data
+
+await fetch(url + "/pokemon", {
+    method: "POST", //send a POST request (would be GET if we didn't specify)
+    body: JSON.stringify(pokemonObject) //turn some Pokemon object into JSON to send in the request body
+})
+.then(stuff)
+.catch(other stuff)
+.finally(wow even more stuff!)
+
+
+*/
+
