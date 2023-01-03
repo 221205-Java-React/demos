@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { FirstComponent } from './components/FirstComponent/FirstComponent';
+
 
 /*
 The App.tsx is the root of our application. 
@@ -18,6 +20,7 @@ function App() {
     <div className="App">
       <h1>Hello React! Show me your moves!</h1>
       <p>we're writing in TSX, while is like HTML for React Typescript</p>
+      <FirstComponent></FirstComponent>
     </div>
   );
 }
