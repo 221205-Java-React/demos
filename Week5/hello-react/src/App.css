@@ -1,0 +1,6 @@
+/*.App is the classname of the div in our return() in App.tsx
+  Thus, every styling we put in this .App selector will be applied globally
+*/
+.App {
+  text-align: center;
+}
