@@ -34,7 +34,7 @@ export const PostComponent: React.FC<User> = (user:User) => {
    This can be anything from button clicks, to state change, to simply rendering the component
     */
     useEffect(() => {
-        //for now, we'll use useEffect to call our useState mutators when the component renders
+        //We'll use useEffect to call our useState mutators when the component renders
         setContent("We are setting this text with the useState mutator in the useEffect hook")
     }, []) //empty square brackets because we want this useEffect to happen when the component renders
 
