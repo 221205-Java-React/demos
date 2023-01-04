@@ -7,7 +7,7 @@ export const EmployeeContainerComponent: React.FC<any> = (data) => {
     //useState lets us declare a state variable, a mutator (like a setter), and a default value
     //remember we need state to send data to other components as props
     let [employees, setEmployees] = useState([]) 
-    //empty array default value since our post data is an array (D)Data.ts)
+    //empty array default value since our post data is an array (data.ts)
 
     //useEffect will execute some code when triggered
     //so our employees variable will be filled with the data from Data.ts
