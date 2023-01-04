@@ -26,5 +26,17 @@ export class ChildComponent extends React.Component<any, any>{
     }
 
     //rending some elements in ChildComponent
+    render(){
+        return(
+            <div>
+                <h3>Hello from the Child Component</h3>
+                <h3 style={{color: this.state.color}}>My parent's favorite color is: {this.state.color}</h3>
+                <h4>My parent's favorite animal is: {this.props.animal}</h4>
+            </div>
+        )
+        //we're accessing the color through state, and the animal through props
+        //but they both came from props sent by the parent! 
+        //We used a constructor to define the child's state from the props object
+    }
 
 }

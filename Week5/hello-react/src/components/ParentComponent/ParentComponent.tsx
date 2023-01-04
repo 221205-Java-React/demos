@@ -25,5 +25,7 @@ export class ParentComponent extends React.Component<{}, any>{
             </div>
         )
     }
+    //Notice that we send the state data as ATTRIBUTES in the ChildComponent
+    //These attributes will become the Child's props
 
 }

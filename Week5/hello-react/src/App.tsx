@@ -2,10 +2,12 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { FirstComponent } from './components/FirstComponent/FirstComponent';
+import { ParentComponent } from './components/ParentComponent/ParentComponent';
+import { UserComponent } from './components/UserComponent/UserComponent';
 
 
 /*
-The App.tsx is the root of our application. 
+The App.tsx is the root of our application (at least when it comes to component rendering). 
 Most of our coding will be done elsewhere, but the App.tsx lets us control what gets rendered and when
 We put the components we want to render in the dev of the return() in this file 
 We can also render standard TSX directly inside the div in the return()
@@ -21,6 +23,8 @@ function App() {
       <h1>Hello React! Show me your moves!</h1>
       <p>we're writing in TSX, while is like HTML for React Typescript</p>
       <FirstComponent></FirstComponent>
+      <ParentComponent></ParentComponent>
+      <UserComponent></UserComponent>
     </div>
   );
 }
