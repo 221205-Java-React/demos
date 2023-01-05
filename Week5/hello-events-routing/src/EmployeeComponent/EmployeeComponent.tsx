@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./EmployeeComponent.css"
+
 export const EmployeeComponent: React.FC<any> = (employee:any) => {
 
     //this component will render an individual employee, with props data coming from the EmployeeContainerComponent
@@ -14,6 +16,5 @@ export const EmployeeComponent: React.FC<any> = (employee:any) => {
             </div>
         </div>
     )
-
 
 }
