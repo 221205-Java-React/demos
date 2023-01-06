@@ -36,12 +36,10 @@ const Home: React.FC<any> = () => {
     <div className="home-page"> 
 
         <div className="home-container"> 
-
-            <Pokemon name={pokeName} sprite={pokeSprite}/>
-
             <h3>Search for your Pokemon</h3>
             <input type="number" name="pokeSearch" placeholder="Enter PokeID" onChange={gatherInput}/>
             <button className='poke-button' onClick={loadPokemon}>Find Pokemon</button>
+            <Pokemon name={pokeName} sprite={pokeSprite}/>
         </div>
 
     </div>
