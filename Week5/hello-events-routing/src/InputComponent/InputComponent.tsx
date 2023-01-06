@@ -7,11 +7,13 @@ const InputComponent: React.FC<any> = (props:any) => {
     They're like an imaginary parent tag */
   return (
     <>
-        <p>Enter a value:</p>
-        <input type="number"/>
+        <p>Enter {props.name} value:</p>
+        <input name={props.name} type="number" onChange={props.onChange}/>
     </>
   )
-
+    //onChange = {props.onChange}????
+    //we are setting a function to execute when this input box changes.
+    //the function that runs is dependent on whatever function we sent to this component's porps
 }
 
 //this is the more modern way to export your function components, either way works for P2
