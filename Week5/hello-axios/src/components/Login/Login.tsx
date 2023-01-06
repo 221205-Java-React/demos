@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-
 import "./Login.css"
 
 const Login: React.FC<any> = () => {
@@ -70,7 +69,7 @@ const Login: React.FC<any> = () => {
                 <input type="password" name="password" placeholder="password" onChange={gatherInput}/>
             </div>
 
-            <button className="login-button">Catch 'em all!</button>
+            <button className="login-button" onClick={login}>Catch 'em all!</button>
         </div>
 
         <div className="disclaimer">
