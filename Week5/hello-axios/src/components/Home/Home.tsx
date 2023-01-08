@@ -20,7 +20,6 @@ const Home: React.FC<any> = () => {
 
   //a function that makes an axios HTTP GET request
   const loadPokemon = async () => {
-
     //making an axios HTTP Request to GET a specific pokemon by its ID.
     //remember, we need to AWAIT anything that returns a promise
     const response = await axios.get("https://pokeapi.co/api/v2/pokemon/" + pokeId);
@@ -28,9 +27,7 @@ const Home: React.FC<any> = () => {
     //fill out the pokemon state variables with the incoming data
     setPokeName(response.data.name)
     setPokeSprite(response.data.sprites.front_shiny)
-
   }
-
 
   return (
     <div className="home-page"> 
