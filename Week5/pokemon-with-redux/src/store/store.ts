@@ -2,6 +2,7 @@
 
 import { configureStore } from "@reduxjs/toolkit";
 import { AppState } from "./types";
+import reducer from "../reducers/index"
 
 
 /* The initial state of the application in the store will have a default user and pokemon.
