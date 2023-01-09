@@ -1,17 +1,18 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { loginUser } from '../../actions/UserActions';
 
 import "./Login.css"
 
 const Login: React.FC<any> = () => {
 
-  //temporarily default variable to hold a logged in user
-  const user = {
-    id:0,
-    username:"",
-    password:""
-  }
+  //this is how we access the state in the store. (The data in the universal data file).
+  const appState = useSelector<any, any>((state) => state);
+
+  //we need this object to actually dispatch data to our store
+  const dispatch = useDispatch();
 
   //useState hooks to declare some state that will hold username and password
   const [username, setUsername] = useState("");
@@ -33,24 +34,15 @@ const Login: React.FC<any> = () => {
 
   const login = async () => {
 
-    //send an HTTP POST request with axios, and store the response in a variable that we can use
-    const response = await axios.post("http://localhost:5000/auth", {username, password})
+    await dispatch(
+      loginUser({username, password}) as any
+      //these are the states that were changed with handleChange
+      //we need "as any" to make it so that the return type can be any type
+  )
 
-    if(response.status === 202) { //if the login was successful...
-
-        console.log(response)
-
-        //populate our user object from above with the incoming data from the server
-        user.id = response.data.id;
-        user.username = response.data.username
-        user.password = response.data.password
-
-        //if the user logged in successfully, their id won't be 0. 
-        if(user.id > 0){
-            navigate("/home") //thanks to navigate, we can route to the home component automatically
-        }
-
-    }
+  if(appState.user.id > 0){
+    navigate("/home"); //thanks to Routing in the App.tsx, this will switch the component.
+}
 
   }
 
