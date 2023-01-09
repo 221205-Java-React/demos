@@ -1,0 +1,14 @@
+.pokemon-pic{
+    width:150px;
+    background-color: white;
+    border-radius: 100%;
+    margin-right:10px;
+
+}
+
+.pokemon-container{
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
