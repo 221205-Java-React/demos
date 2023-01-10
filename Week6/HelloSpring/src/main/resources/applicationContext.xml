@@ -11,17 +11,21 @@
 
     <!-- We need the <beans> tag and its configurations in order for this xml to be used for Spring -->
 
-    <!-- Below, we are declare and wiring beans in XML
+    <!--This is the only thing we need in our applicationContext.xml for annotation-driven bean wiring-->
+    <context:component-scan base-package="com.revature"></context:component-scan>
+    <!---With this one line, the applicationContext.xml knows to scan com.revature for BEANS-->
+
+    <!-- Below, we are declaring and wiring beans in XML
     (which we'll only do if we need super specific bean configs (We prefer autowiring) -->
 
     <!-- Account Bean -->
-    <bean name="account" class="com.revature.models.Account"></bean>
+    <!-- <bean name="account" class="com.revature.models.Account"></bean> -->
 
     <!-- User Bean -->
-    <bean name="user" class="com.revature.models.User">
+    <!-- <bean name="user" class="com.revature.models.User"> -->
     <!-- The User Class has an Acount as one of its fields. So we need to WIRE the Account Bean-->
-        <property name="account" ref="account" ></property>
+        <!-- <property name="account" ref="account" ></property> -->
         <!-- name is the name of the field in User Class, ref is the name of the Bean in our XML -->
-    </bean>
+    <!-- </bean> -->
 
 </beans>
