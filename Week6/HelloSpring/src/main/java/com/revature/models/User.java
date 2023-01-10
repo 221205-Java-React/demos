@@ -1,9 +1,11 @@
 package com.revature.models;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component //we want to make this a bean, and @Component (as well as the other 3 stereotypes) can do that
+@Scope("prototype")
 public class User {
 
     private int userId;

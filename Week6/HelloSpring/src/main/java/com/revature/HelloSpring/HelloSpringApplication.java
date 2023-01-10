@@ -35,7 +35,24 @@ public class HelloSpringApplication {
 		//User u should be fully initialized now
 		System.out.println(u);
 
+		System.out.println("=====================================(Bean Scopes)");
 
+		//Beans are singletons by default - the SAME instance of User will be shared across all objects
+		User u2 = ac.getBean(User.class);
+
+		System.out.println(u2);
+
+		//try to give this user a new value
+		u2.setUserName("Bono");
+		u2.setUserId(10);
+
+		System.out.println(u2);
+
+		//the value will change...
+		System.out.println(u); //across ALL instances of User
+
+		/* If you're reading this, we changed the User Scope to "prototype" so there can be unique instances
+		* Account is STILL SINGLTON SCOPED! so there will still only be one instance per instantiation */
 
 	}
 
