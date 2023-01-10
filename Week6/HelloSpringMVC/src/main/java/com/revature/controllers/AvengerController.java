@@ -2,14 +2,10 @@ package com.revature.controllers;
 
 import com.revature.daos.AvengerDAO;
 import com.revature.models.Avenger;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller //Makes the Class a Bean, and lets us use all of the annotations below-
 @RequestMapping(value="/avenger") //all requests ending in /mvc/avenger will go to this controller
