@@ -1,5 +1,8 @@
 package com.revature.models;
 
+import org.springframework.stereotype.Component;
+
+@Component //again, we want to make this class a bean
 public class Account {
 
     private double accountBalance;
