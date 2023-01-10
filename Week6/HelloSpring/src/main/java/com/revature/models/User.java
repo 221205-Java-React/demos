@@ -7,7 +7,7 @@ public class User {
     private Account account;
 
     //boilerplate code-------------------------
-    
+
     public User() {
     }
 
