@@ -38,5 +38,5 @@ public class Account {
                 ", accountType='" + accountType + '\'' +
                 '}';
     }
-    
+
 }
