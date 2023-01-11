@@ -20,7 +20,6 @@ public class Human {
     private String password;
 
     //boilerplate code-----------------------------
-
     public Human() {
     }
 

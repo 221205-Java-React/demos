@@ -26,23 +26,44 @@ public class Digimon {
     @Column
     private String digimonLevel;
 
-    //boilerplate code
+    //Sorry digimon purists - in this universe we assume a human can have many digimon
+
+    //We are establishing a @ManyToOne relationship - one human can have many digimon
+    //We will make this field a FK to the Human table
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "humanId") //This is how we specify the PK that this FK points to
+    //the name attribute of the @JoinColumn annotation needs to equal the name in the Human Class.
+    //IMPORTANT NOTE: using @Column will break this, @JoinColumn already fills that role.
+    private Human human;
+
+    /* WHAT are fetch and cascade??
+
+     fetch - sets whether we want the Human to be eagerly or lazily loaded
+     (typically we want eager loading so that the object/relationship is ready before we even need it)
+
+     cascade - sets how changes in a table cascade to dependent records
+     (with CascadeType.ALL, if a Human is updated/deleted, that update/delete will cascade down)
+
+     */
+
+    //boilerplate code----------------
 
     public Digimon() {
     }
 
-    public Digimon(int digimonId, String digimonName, String digimonType, String digimonLevel) {
+    public Digimon(int digimonId, String digimonName, String digimonType, String digimonLevel, Human human) {
         this.digimonId = digimonId;
         this.digimonName = digimonName;
         this.digimonType = digimonType;
         this.digimonLevel = digimonLevel;
+        this.human = human;
     }
 
-
-    public Digimon(String digimonName, String digimonType, String digimonLevel) {
+    public Digimon(String digimonName, String digimonType, String digimonLevel, Human human) {
         this.digimonName = digimonName;
         this.digimonType = digimonType;
         this.digimonLevel = digimonLevel;
+        this.human = human;
     }
 
     public int getDigimonId() {
@@ -77,6 +98,14 @@ public class Digimon {
         this.digimonLevel = digimonLevel;
     }
 
+    public Human getHuman() {
+        return human;
+    }
+
+    public void setHuman(Human human) {
+        this.human = human;
+    }
+
     @Override
     public String toString() {
         return "Digimon{" +
@@ -84,6 +113,7 @@ public class Digimon {
                 ", digimonName='" + digimonName + '\'' +
                 ", digimonType='" + digimonType + '\'' +
                 ", digimonLevel='" + digimonLevel + '\'' +
+                ", human=" + human +
                 '}';
     }
 }
