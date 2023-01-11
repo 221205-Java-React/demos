@@ -13,10 +13,11 @@ public class DigimonController {
 
     //autowiring the DigimonDAO with constructor injection
 
-    private DigimonDAO dDAO;
+    private final DigimonDAO dDAO;
 
     @Autowired
     public DigimonController(DigimonDAO dDAO) {
+        super();
         this.dDAO = dDAO;
     }
 
@@ -41,6 +42,5 @@ public class DigimonController {
         return ResponseEntity.accepted().body(newDigimon); //send a 202 status code and the new digimon
 
     }
-
 
 }
