@@ -56,7 +56,7 @@ public class DigimonController {
 
     }
 
-    @GetMapping(value="/{id}")
+    @GetMapping(value="/id/{id}")
     public ResponseEntity<Digimon> findById(@PathVariable int id){
 
         /* findById from JpaRepository returns an Optional
@@ -72,12 +72,25 @@ public class DigimonController {
 
             return ResponseEntity.ok(extractedDigimon);
         }
-
         //if get by ID failed...
         return ResponseEntity.badRequest().build(); //returning a 400 with no response body
-
     }
 
+    @GetMapping(value="/name/{name}")
+    public ResponseEntity<List<Digimon>> findByName(@PathVariable String name){
 
+        Optional<List<Digimon>> digimonOptional = dDAO.findByDigimonName(name);
+
+        //we can check if the optional has data with .isPresent(), or .isEmpty()
+        if(digimonOptional.isPresent()){
+            //we can extract the Optional's data with .get()
+            List<Digimon> extractedDigimon = digimonOptional.get();
+
+            return ResponseEntity.ok(extractedDigimon);
+        }
+        //if get by name failed...
+        return ResponseEntity.badRequest().build(); //returning a 400 with no response body
+        
+    }
 
 }
