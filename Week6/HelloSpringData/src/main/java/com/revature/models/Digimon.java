@@ -38,6 +38,7 @@ public class Digimon {
         this.digimonLevel = digimonLevel;
     }
 
+
     public Digimon(String digimonName, String digimonType, String digimonLevel) {
         this.digimonName = digimonName;
         this.digimonType = digimonType;
