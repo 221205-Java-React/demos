@@ -90,7 +90,7 @@ public class DigimonController {
         }
         //if get by name failed...
         return ResponseEntity.badRequest().build(); //returning a 400 with no response body
-        
+
     }
 
 }
