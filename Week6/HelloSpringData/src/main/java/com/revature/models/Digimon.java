@@ -32,7 +32,7 @@ public class Digimon {
     //We will make this field a FK to the Human table
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "humanId") //This is how we specify the PK that this FK points to
-    //the name attribute of the @JoinColumn annotation needs to equal the name in the Human Class.
+    //the name attribute of the @JoinColumn annotation will name the column in your table.
     //IMPORTANT NOTE: using @Column will break this, @JoinColumn already fills that role.
     private Human human;
 
