@@ -49,8 +49,6 @@ public class HelloSpringAopApplication {
 			System.out.println("Caught an exception :O");
 		}
 
-		//and around
-
 	}
 
 }
