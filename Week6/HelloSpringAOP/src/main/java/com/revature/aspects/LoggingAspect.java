@@ -1,10 +1,9 @@
 package com.revature.aspects;
 
+import com.revature.models.Avenger;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -47,6 +46,33 @@ public class LoggingAspect {
         //jp tracks whatever method we're injecting advice into
         //thrownException lets us access the exception thrown by the method
         log.warn(jp.getTarget() + " invoked " + jp.getSignature() + " throwing " + thrownException);
+    }
+
+    /*Around is the most complicated, but most powerful annotation in AOP
+    With Around, you don't need a specify a pointcut BUT we need to use ProceedingJoinPoint (not JoinPoint)
+    NOTE how this one method can replace @AfterReturning and @AfterThrowing advices above */
+    @Around("execution(String fight(..))")
+    public void logFight(ProceedingJoinPoint pjp) throws Throwable{
+
+        //get the Avenger object from the arguments provided in the fight() method
+        Avenger a = (Avenger)pjp.getArgs()[0]; //we're getting the FIRST value of the arguments
+        //we just need to cast, since getArgs can't predict the data type of the argument in question
+
+        //log before the method even executes
+        log.info(a.getAveName() + " IS ABOUT TO FIGHT");
+
+        //get the distance value from the fight method
+        double distance = (double)pjp.getArgs()[2];
+
+        //now, we can do some control flow based on the distance (any number < 6 will throw an Exception)
+        if(distance < 6){
+            log.warn("FIGHT METHOD IS ABOUT TO THROW AN ARITHMETICEXCEPTION");
+        } else {
+            //actually let the fight method run with proceed() method
+            String s = (String)pjp.proceed();
+            log.info("FIGHT METHOD HAS CONCLUDED GOOD FIGHT EVERYONE");
+        }
+
     }
 
 }
