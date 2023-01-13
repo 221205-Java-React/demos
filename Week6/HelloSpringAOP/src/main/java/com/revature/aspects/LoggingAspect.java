@@ -2,6 +2,7 @@ package com.revature.aspects;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
@@ -35,8 +36,17 @@ public class LoggingAspect {
       */
     @AfterReturning(pointcut="execution(String fight(..))", returning="returnedObject")
     public void logSuccessfulMethod(JoinPoint jp, Object returnedObject){
-
+        //jp tracks whatever method we're injecting advice into
+        //returnedObject lets us access the object returned by the method
         log.info(jp.getTarget() + " invoked " + jp.getSignature() + " returning " + returnedObject);
+    }
+
+    /*This advice will run AFTER and exception is THROWN in the specified pointcut*/
+    @AfterThrowing(pointcut="execution(String fight(..))", throwing="thrownException")
+    public void logException(JoinPoint jp, Exception thrownException){
+        //jp tracks whatever method we're injecting advice into
+        //thrownException lets us access the exception thrown by the method
+        log.warn(jp.getTarget() + " invoked " + jp.getSignature() + " throwing " + thrownException);
     }
 
 }

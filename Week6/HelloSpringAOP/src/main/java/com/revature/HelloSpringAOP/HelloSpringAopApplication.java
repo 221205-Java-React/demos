@@ -39,9 +39,17 @@ public class HelloSpringAopApplication {
 		a2.setPower("Static Shock");
 		a2.setPowerLevel(2352);
 
-		//show after returning/after throwing log
+		//make static shock fight to show the AfterReturning advice
+		System.out.println(aDAO.fight(a2, "zapzap", 20));
 
-		//and maybe around
+		//we need a try/catch to be able to see the AfterReturning advice without crashing the app
+		try{
+			System.out.println(aDAO.fight(a2, "zappo", 3)); //this will throw an exception
+		} catch(ArithmeticException e){
+			System.out.println("Caught an exception :O");
+		}
+
+		//and around
 
 	}
 
