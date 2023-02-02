@@ -1,2 +1,12 @@
-package com.revature.daos;public class UserDAO {
+package com.revature.daos;
+import com.revature.models.User;
+public class UserDAO {
+
+    public User findByUsername(String name) {
+        return new User(1, "coolUsername", "password");
+    }
+
+    public User findById(int id) {
+        return null;
+    }
 }

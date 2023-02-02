@@ -31,8 +31,6 @@ public class Launcher {
             System.out.println("connection failed :(");
         }
 
-        System.out.println(System.getenv("url"));
-
         //Typical Javalin object creation syntax
         Javalin app = Javalin.create(
 
@@ -43,7 +41,7 @@ public class Launcher {
                 config.enableCorsForAllOrigins(); //This lets us process HTTP Requests from anywhere
             }
 
-        ).start(3000); //we need .start() to start our Java server on port 3000
+        ).start(8888); //we need .start() to start our Java server on port 3000
         //You can do any port, I chose 3000 because probably nothing is using it.
         //a port is like a parking space for an application, where messages etc. can find it
 

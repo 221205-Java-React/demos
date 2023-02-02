@@ -23,14 +23,18 @@ public class ConnectionUtil {
         Hardcoded for now - It's possible hide them in the Environment Variables, feel free to look into it.
         I'm going to put the credentials in Strings, and use those strings in a method that gets connections
         */
-        String url = "jdbc:postgresql://localhost:5432/postgres?currentSchema=project1demo";
-        String username = "postgres";
-        String password = "Sparky2014!!"; //YOUR PASSWORD WILL BE DIFFERENT FROM THIS
+//        String url = "jdbc:postgresql://localhost:5432/postgres?currentSchema=project1demo";
+//        String username = "postgres";
+//        String password = "Sparky2014!!"; //YOUR PASSWORD WILL BE DIFFERENT FROM THIS
         /*
          url - the location of your database/schema
          username - postgres username (usually postgres)
          password - postgres password (hopefully just password)
           */
+
+        String url = System.getenv("DB_URL");
+        String username = System.getenv("DB_USERNAME");
+        String password = System.getenv("DB_PASSWORD");
 
         //This return statement is what returns out actual database Connection object
         //Note how this getConnection() method has a return type of Connection
