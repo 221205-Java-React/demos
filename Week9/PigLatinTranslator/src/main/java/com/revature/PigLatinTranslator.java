@@ -1,5 +1,6 @@
 package com.revature;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PigLatinTranslator {
@@ -7,14 +8,14 @@ public class PigLatinTranslator {
     public static String englishToPigLatin(String input){
 
         //empty string input check---------------
-        if(input.equals("")){
+        if (input.equals("")) {
             return "Please enter a word or phrase to translate!";
         }
 
         //number in input check-----------------
         char[] inputToChar = input.toCharArray();
         for(char c : inputToChar){
-            if(Character.isDigit(c)){
+            if (Character.isDigit(c)) {
                 throw new IllegalArgumentException();
             }
         }
@@ -39,6 +40,15 @@ public class PigLatinTranslator {
     public static String translateEnglishWord (String word)
     {
         String result = "";
+
+        //profanity filter - this is a family friendly Pig Latin translator application-----------
+        ArrayList<String> badWords = new ArrayList<String>();
+        badWords.add("Dingus"); badWords.add("Goofball"); badWords.add("Javascript");
+        badWords.add("Heck"); badWords.add("Skittle"); badWords.add("Hyuck");
+
+        if (badWords.contains(word)) {
+            return "Please try again, omitting those nasty brutish words you horrid oaf";
+        }
 
         if (beginsWithVowel(word)) {
             result = word + "yay";
