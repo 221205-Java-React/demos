@@ -43,11 +43,13 @@ public class PigLatinTranslator {
 
         //profanity filter - this is a family friendly Pig Latin translator application-----------
         ArrayList<String> badWords = new ArrayList<String>();
-        badWords.add("Dingus"); badWords.add("Goofball"); badWords.add("Javascript");
-        badWords.add("Heck"); badWords.add("Skittle"); badWords.add("Hyuck");
+        badWords.add("dingus"); badWords.add("goofball"); badWords.add("javascript");
+        badWords.add("heck"); badWords.add("skittle"); badWords.add("hyuck");
 
-        if (badWords.contains(word)) {
+        if (badWords.contains(word.toLowerCase())) {
             return "Please try again, omitting those nasty brutish words you horrid oaf";
+        } else if (word.toLowerCase().equals("frick")) {
+            return null; //(This word is so bad that the return statement has nothing to say to you)
         }
 
         if (beginsWithVowel(word)) {
