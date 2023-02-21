@@ -116,7 +116,7 @@ public class Launcher {
     /* "WOW!! My curse has been lifted. I wish you didn't hit me back though.
     Anyway, I will reward you if you can solve my riddle -
 
-    "Make me a sequence of 1, 2, and 3 - ordered and indexed this data structure must be.
+    "Make me a sequence of 1, 2, and 3 - ordered and indexed this structure must be.
     Print the second element of this creation - or else you shall suffer eternal damnation."
          __/\__
     . _   \^^/
@@ -146,7 +146,7 @@ public class Launcher {
       -Skip the unfavorable items */
 
       String[] items = {"Monster Energy", "Two dollars", "Two doll hairs", "Puppy",
-      "The Declaration of Independence", "Staff of Plot Thickening"};
+              "Cousin Greg", "The Declaration of Independence", "Staff of Plot Thickening"};
 
       for(int i = 0; i < items.length; i++){
 
@@ -254,7 +254,7 @@ public class Launcher {
             "HOW MANY OF YOU MILK DRINKERS WANNA CATCH SOME HANDS?" You inquire politely...
 
             There were 10. */
-       
+
         /* (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง
 
         You're getting absolutely stomped out by 10 tavern patrons! You've accepted your fate.
