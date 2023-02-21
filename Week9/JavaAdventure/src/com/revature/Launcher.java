@@ -83,7 +83,7 @@ public class Launcher {
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⠇⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠘⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠃⠀⠀⠀⠀⠀  */
+⠀⠀⠀⠀⠀⠀⠀⠘⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠃*/
 
         player.setWeapon(player.craft("Sword", "Iron"));
         player.setArmor(player.craft("Breastplate", "Steel Plate"));
@@ -143,7 +143,7 @@ public class Launcher {
 
       -Iterate through the chest's loot
       -Choose (print out) only the favorable items
-      -Skip the unfavorable items*/
+      -Skip the unfavorable items */
 
       String[] items = {"Monster Energy", "Two dollars", "Two doll hairs", "Puppy",
       "The Declaration of Independence", "Staff of Plot Thickening"};
@@ -157,9 +157,7 @@ public class Launcher {
 
       /*"The Staff of Plot Thickening? Better use this since I'm out of ideas for smooth transitions"
 
-      Upon using the Staff, an imp appears!!
-
-        "Myahhh! I am an Imp named Slickback"
+      Upon using the Staff, an imp appears!! "Myahhh! I am an Imp named Slickback"
 
         "Your name is Slickback?" You query.
 
@@ -177,6 +175,7 @@ public class Launcher {
         "What can we use, to let users choose, datatypes during instantiation?
         it's used in collections, and it's my perception that it lends to code flexibility"
 
+        *The imp is unaware that the riddle didn't rhyme"
        */
 
         //thanks to the <Generic> declared in the ArrayList Class,
@@ -246,7 +245,7 @@ public class Launcher {
                 ooooooooo
              .-'---ooooo-|
             ( C|/\/\/oo\/|
-             '-./\/\/\/\/|
+             '-./\/\/\o\/|
                '_________'
                 '-------'
 
@@ -254,11 +253,9 @@ public class Launcher {
 
             "HOW MANY OF YOU MILK DRINKERS WANNA CATCH SOME HANDS?" You inquire politely...
 
-            There were 10.
-            */
-        /*
-
-        (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง
+            There were 10. */
+       
+        /* (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง
 
         You're getting absolutely stomped out by 10 tavern patrons! You've accepted your fate.
 
