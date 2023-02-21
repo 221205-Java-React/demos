@@ -1,8 +1,6 @@
 package com.revature.services;
-import com.revature.daos.UserDAO;
+import com.revature.daos.UserDAOInterface;
 import com.revature.models.User;
-import com.revature.daos.UserDAO;
-import org.junit.runner.RunWith;
 
 /*we haven't really talked much about service classes
 but they sit between the controllers and DAOs, and contain extra business logic
@@ -11,9 +9,9 @@ anything taking in and processing HTTP requests is in the controller layer
 EVERYTHING ELSE should probably go in the service layer */
 
 public class UserService {
-    private UserDAO dao;
+    private UserDAOInterface dao;
 
-    public UserService(UserDAO dao) {
+    public UserService(UserDAOInterface dao) {
         super();
         this.dao = dao;
     }
