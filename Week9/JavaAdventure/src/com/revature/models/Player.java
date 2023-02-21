@@ -2,15 +2,14 @@ package com.revature.models;
 
 public class Player implements IPlayer{
 
-    //name, weapon, armor, health (100)
-    public String name = "Player1";
-    public String weapon = "No Weapon";
-    public String armor = "No Armor";
-    public int health = 100;
+    private String name;
+    private String weapon = "No Weapon";
+    private String armor = "No Armor";
+    private static int health = 100;
 
     @Override
     public void fight() {
-        System.out.println(name + " attacked with " + weapon + " while wearing " + armor);
+        System.out.println(name + " is fighting with " + weapon + " wearing " + armor);
     }
 
     @Override
@@ -25,8 +24,42 @@ public class Player implements IPlayer{
         this.name = name;
     }
 
-    public Player(String name, String weapon) {
+    public Player(String name, String weapon, String armor, int health) {
         this.name = name;
         this.weapon = weapon;
+        this.armor = armor;
+        this.health = health;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(String weapon) {
+        this.weapon = weapon;
+    }
+
+    public String getArmor() {
+        return armor;
+    }
+
+    public void setArmor(String armor) {
+        this.armor = armor;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
     }
 }

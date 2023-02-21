@@ -13,20 +13,8 @@ public class Launcher {
         -Instantiate your Player here, ONLY giving it a name
         -Print out "[player name] was born!" */
 
-        Player player = new Player("Ben the Benly");
-
-
-
-
-
-
-
-
-
-
-
-
-
+        Player player = new Player("Ponyo");
+        System.out.println(player.getName() + " was born");
 
         /* Despite you just being born, you're surrounded by wolves!! Where are your parents?
 
@@ -46,49 +34,13 @@ public class Launcher {
                 _'
               _-' */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        player.fight();
 
     /*You barely survive, losing 90 health in the fight
      -Subtract 90 from player health, and print out remaining health*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    player.setHealth(player.getHealth() - 90);
+    System.out.println(player.getHealth());
 
 
 
@@ -104,32 +56,14 @@ public class Launcher {
         /     \
        /       \
        |`-...-'|
-       |asprin |
+       | asprin|
      _ |`-...-'j    _
     (\)`-.___.(I) _(/)
       (I)  (/)(I)(\) */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    Integer health = 200;
+    player.setHealth(health);
+    System.out.println(player.getHealth());
 
 
         /* Welcome to the blacksmith! It's time for some upgrades.
@@ -151,32 +85,17 @@ public class Launcher {
 ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠘⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠃⠀⠀⠀⠀⠀  */
 
+        player.setWeapon(player.craft("Sword", "Iron"));
+        player.setArmor(player.craft("Breastplate", "Steel Plate"));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        System.out.println(player.getWeapon());
+        System.out.println(player.getArmor());
 
 
 
     /*You encounter an angry Wizard! He looks like he's got unhandled problems.
 
-    "I pity you traveler, for you will be the now bearer of my burden... TRY to handle THIS!!!"
+    "I pity you traveler, for you will be the new bearer of my burden... TRY to handle THIS!!!"
 
          __/\__
     . _   \''/
@@ -186,38 +105,19 @@ public class Launcher {
       |   | .  \
      .'. ,\_____'. */
 
-   //throw new ArithmeticException();
-
-   //-After handling the exception, fight() back!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   try{
+       int x = 2/0;
+   } catch(ArithmeticException e) {
+       System.out.println("Caught ArithmeticException!!");
+   } finally{
+       player.fight();
+   }
 
     /* "WOW!! My curse has been lifted. I wish you didn't hit me back though.
     Anyway, I will reward you if you can solve my riddle -
 
     "Make me a sequence of 1, 2, and 3 - ordered and indexed this data structure must be.
-    Print the second index of this creation - or else you shall suffer eternal damnation."
+    Print the second element of this creation - or else you shall suffer eternal damnation."
          __/\__
     . _   \^^/
     -( )-/_||_\
@@ -226,25 +126,8 @@ public class Launcher {
       |   | .  \
      .'. ,\_____'. */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    int[] sequence = {1,2,3};
+    System.out.println(sequence[1]);
 
 
     /*After solving the wizard's riddle, he vanishes in a puff of bytecode!!
@@ -265,15 +148,12 @@ public class Launcher {
       String[] items = {"Monster Energy", "Two dollars", "Two doll hairs", "Puppy",
       "The Declaration of Independence", "Staff of Plot Thickening"};
 
+      for(int i = 0; i < items.length; i++){
 
-
-
-
-
-
-
-
-
+          if (items[i].equals("Two doll hairs"))
+              continue;
+          System.out.println(items[i]);
+      }
 
       /*"The Staff of Plot Thickening? Better use this since I'm out of ideas for smooth transitions"
 
@@ -299,24 +179,12 @@ public class Launcher {
 
        */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        //thanks to the <Generic> declared in the ArrayList Class,
+        //we developers are able to instantiate an ArrayList of any object we want.
+        ArrayList<String> stuff = new ArrayList<>();
 
 
         /*Despite your correct answer, the imp betrayed you!! You're fighting!!!
-
 
               O                                     O
         {o)xxx|===============-  *  -===============|xxx(o}
@@ -328,20 +196,13 @@ public class Launcher {
 
         int impHealth = 100;
 
+        while(impHealth > 0){
+            player.fight();
+            impHealth -= 20;
+            player.setHealth(player.getHealth() - 20);
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        System.out.println(player.getHealth());
 
 
         /*You're hurt, but the surgeon general recommends no more than 12 tablets of Aspirin
@@ -364,21 +225,17 @@ public class Launcher {
         "Just one, as usual!" Replies the innkeeper
 
         "This non access mod makes beginners sob, for its use case is somewhat unclear...
-        It makes a variable belong to the class, and its value amongst instances adhere" */
+        It makes a variable belong to the class, and its value between objects adheres" */
 
+        Player p2 = new Player("Jojo");
 
+        System.out.println(p2.getHealth()); //100
+        player.setHealth(90);
+        System.out.println(player.getHealth()); //90
+        System.out.println(p2.getHealth()); //90
 
-
-
-
-
-
-
-
-
-
-
-
+        //Since the health variable is static, it's shared amongst every player.
+        //Probably not what we want. if you want values to be unique between objects, you want nonstatic.
 
 
         /* That wasn't so hard was it?
@@ -399,28 +256,6 @@ public class Launcher {
 
             There were 10.
             */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         /*
 
         (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง (ง'̀-'́)ง
@@ -431,19 +266,17 @@ public class Launcher {
         -For every patron, subtract 15 from your health.
         -If your health is less than or equal to 0 after any hit, you die and the loop breaks! */
 
+        for(int i = 0; i <= 10; i++){
 
+            player.setHealth(player.getHealth() - 15);
 
+            if(player.getHealth() <= 0){
+                System.out.println("A very mature baby started a bar fight thus sealing his fate");
+                System.out.println("~///THE END///~");
+                break;
+            }
 
-
-
-
-
-
-
-
-
-
-
+        }
 
     }
 
