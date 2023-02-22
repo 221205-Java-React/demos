@@ -9,4 +9,15 @@ public class UserDAO implements UserDAOInterface{
     public User findById(int id) {
         return null;
     }
+
+
+
+    public String returnEmployee(){
+        return "Employee";
+    }
+
+    public String returnManager(){
+        return "Manager";
+    }
+
 }

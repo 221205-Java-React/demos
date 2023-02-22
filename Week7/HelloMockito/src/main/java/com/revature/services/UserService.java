@@ -1,4 +1,5 @@
 package com.revature.services;
+import com.revature.daos.UserDAO;
 import com.revature.daos.UserDAOInterface;
 import com.revature.models.User;
 
@@ -9,7 +10,9 @@ anything taking in and processing HTTP requests is in the controller layer
 EVERYTHING ELSE should probably go in the service layer */
 
 public class UserService {
-    private UserDAOInterface dao;
+    private UserDAOInterface dao; //this is the uninstantiated, unimplemented interface
+
+    private UserDAO daoimpl = new UserDAO(); //this is the instantiated, implemented class
 
     public UserService(UserDAOInterface dao) {
         super();
@@ -39,4 +42,18 @@ public class UserService {
         }
         return null;
     }
+
+    public String determineRole(int id){
+
+        if(id <= 0){
+            return null;
+        }
+
+        if(id==1){
+           return daoimpl.returnManager();
+        } else{
+            return daoimpl.returnEmployee();
+        }
+    }
+
 }
