@@ -57,14 +57,10 @@ public class Launcher {
 
         //basic for loop
 
-        int loopVictim = 0; //we'll use this int in the for loop
-
         //"for as long as this int i, which starts at 0, is less than 10, increment it once per loop"
         //so in essence, we've written a loop than runs 10 times.
         for(int i = 0; i < 10; i++){
             //every time this loop loops, this code will run
-            loopVictim++; //increment our loopVictim by 1
-            System.out.println("Our loopVictim is: " + loopVictim);
             System.out.println("Our loop variable (i) is now: " + i);
         }
 
