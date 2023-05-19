@@ -7,7 +7,7 @@ Abstract Classes are Classes with AT LEAST one abstract method.
 
 Why use an Abstract Class over an Interface?
 -I use Abstract Classes when I KNOW I want to have methods that are defined.
--In this case, I'd need a concrete method (one with a body) so all subclasses share the same behavior
+-This causes all subclasses share the same default behavior for that method. 
 
 -I use Interfaces when I don't care about specific implementations of methods
 -If I'm fine with every subclass implementing the methods differently, I'll use an Interface
