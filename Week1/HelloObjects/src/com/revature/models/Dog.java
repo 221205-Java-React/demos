@@ -11,11 +11,9 @@ public class Dog {
 
     //Declare a method for the Dog Class. Something Dogs can do
     public String bark(){
-        /*
-        This line RETURNS a String. When this method is called, this String gets returned
+        /* This line RETURNS a String. When this method is called, this String gets returned
         What is this.name? this. refers to a variable belonging to THIS class/object
-        so here we're saying get the name variable of this specific Dog
-        */
+        so here we're saying get the name variable of this specific Dog */
         return this.name + " goes bark bark bark";
     }
     /* Method Disambiguation:
@@ -27,18 +25,14 @@ public class Dog {
 
     //Constructors Below-------------------------------------------
 
-    /*
-    Remember, constructors are how we give values to the object's variables
+    /* Remember, constructors are how we give values to the object's variables
     When we instantiate an object, we use a constructor depending on what values we want it to have
-    Constructors will have the same name as the Class but no return type
-    */
+    Constructors will have the same name as the Class but no return type */
 
-    /*
-    These constructors are an example of METHOD OVERLOADING
+    /* These constructors are an example of METHOD OVERLOADING
     They have the same names, but different amount, type, or order of parameters
     This is one example of POLYMORPHISM (a pillar of OOP)
-        "Same thing, different form", these constructors share the same name, but do different things.
-    */
+        "Same thing, different form", these constructors share the same name, but do different things. */
 
     //no-args constructor. No args constructors take no arguments. Typically used for default values
     //If you create a Dog with no parameters, this constructor will get called
