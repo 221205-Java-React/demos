@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 import "./Login.css"
+import { state } from '../../store';
 
 const Login: React.FC<any> = () => {
 
@@ -34,19 +35,23 @@ const Login: React.FC<any> = () => {
   const login = async () => {
 
     //send an HTTP POST request with axios, and store the response in a variable that we can use
-    const response = await axios.post("http://localhost:5000/auth", {username, password})
+    const response = await axios.post("http://localhost:8080/auth/login", {username, password})
 
-    if(response.status === 202) { //if the login was successful...
+    if(response.status === 200) { //if the login was successful...
 
         console.log(response)
 
-        //populate our user object from above with the incoming data from the server
-        user.id = response.data.id;
-        user.username = response.data.username
-        user.password = response.data.password
+        // //populate our user object from above with the incoming data from the server
+        // user.id = response.data.id;
+        // user.username = response.data.username
+        // user.password = response.data.password
 
-        //if the user logged in successfully, their id won't be 0. 
-        if(user.id > 0){
+        //populate the incoming JWT in the global state 
+        state.JWT = response.data.accessToken
+        console.log(state.JWT)
+
+        //if the JWT isn't empty (it's truthy!) then navigate to the home component
+        if(state.JWT){
             navigate("/home") //thanks to navigate, we can route to the home component automatically
         }
 
